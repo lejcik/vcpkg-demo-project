@@ -4,3 +4,6 @@
 # Build dirs
 x64/
 x86/
+
+# temp dir for vcpkg installed libs
+vcpkg_installed/
