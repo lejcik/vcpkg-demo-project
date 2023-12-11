@@ -30,7 +30,12 @@ jobs:
       uses: actions/checkout@v4
 
     - name: Add MSBuild to PATH
-      uses: microsoft/setup-msbuild@v1.0.2
+      uses: microsoft/setup-msbuild@v1.3.1
+
+    - name: Install packages and dependencies
+      run: |
+        bootstrap-vcpkg
+        vcpkg integrate install
 
     - name: Build
       working-directory: ${{env.GITHUB_WORKSPACE}}
