@@ -56,7 +56,8 @@ jobs:
       uses: actions/upload-artifact@v3
       with:
         name: project-binaries
-        path: ${{ matrix.targetplatform }}/${{ env.BUILD_CONFIGURATION }}/*.exe
-        path: ${{ matrix.targetplatform }}/${{ env.BUILD_CONFIGURATION }}/*.pdb
+        path: |
+          ${{ matrix.targetplatform }}/${{ env.BUILD_CONFIGURATION }}/*.exe
+          ${{ matrix.targetplatform }}/${{ env.BUILD_CONFIGURATION }}/*.pdb
         # auto-delete the artifacts
         retention-days: 5
