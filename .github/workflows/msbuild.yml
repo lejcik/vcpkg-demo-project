@@ -28,9 +28,9 @@ jobs:
     steps:
     - name: Runner info
       run: |
-        echo "RUNNER_OS: $env::RUNNER_OS"
-        echo "RUNNER_ARCH: $env::RUNNER_ARCH"
-        echo "RUNNER_DEBUG: $env::RUNNER_DEBUG"
+        echo "RUNNER_OS: $env:RUNNER_OS"
+        echo "RUNNER_ARCH: $env:RUNNER_ARCH"
+        echo "RUNNER_DEBUG: $env:RUNNER_DEBUG"
 
     - name: Checkout sources
       uses: actions/checkout@v4
@@ -51,6 +51,6 @@ jobs:
       uses: actions/upload-artifact@v3
       with:
         name: Executable
-        path: ${{ env.RUNNER_ARCH }}/${{ env.BUILD_CONFIGURATION }}/*.exe
+        path: ${{ env:RUNNER_ARCH }}/${{ env.BUILD_CONFIGURATION }}/*.exe
         # auto-delete the artifacts
         retention-days: 5
