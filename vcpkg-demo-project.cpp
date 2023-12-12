@@ -9,7 +9,7 @@
 
 int main()
 {
-	std::cout << "vcpkg-demo-project:" << std::endl;
+	std::cout << "vcpkg-demo-project:" << std::endl << std::endl;
 	std::cout << "lzma version: " << lzma_version_string() << std::endl;
 	std::cout << "zstd version: " << ZSTD_versionString() << std::endl;
 
