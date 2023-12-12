@@ -24,13 +24,15 @@ permissions:
 jobs:
   build:
     runs-on: windows-latest
+    strategy:
+      matrix:
+        targetplatform: [x86, x64]
 
     steps:
     - name: Runner info
       run: |
-        echo "RUNNER_OS: ${{ env.RUNNER_OS }}"
-        echo "RUNNER_ARCH: ${{ env.RUNNER_ARCH }}"
-        echo "RUNNER_DEBUG: ${{ env.RUNNER_DEBUG }}"
+        echo "RUNNER_OS: ${{ matrix.runs-on }}"
+        echo "RUNNER_ARCH: ${{ matrix.targetplatform }}"
 
     - name: Checkout sources
       uses: actions/checkout@v4
@@ -38,7 +40,7 @@ jobs:
     - name: Add MSBuild to PATH
       uses: microsoft/setup-msbuild@v1.3.1
 
-    - name: Install packages and dependencies
+    - name: Setup vcpkg
       run: |
         bootstrap-vcpkg
         vcpkg integrate install
@@ -51,6 +53,6 @@ jobs:
       uses: actions/upload-artifact@v3
       with:
         name: Executable
-        path: ${{ env.RUNNER_ARCH }}/${{ env.BUILD_CONFIGURATION }}/*.exe
+        path: ${{ matrix.targetplatform }}/${{ env.BUILD_CONFIGURATION }}/*.exe
         # auto-delete the artifacts
         retention-days: 5
