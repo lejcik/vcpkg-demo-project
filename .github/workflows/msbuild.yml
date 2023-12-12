@@ -31,7 +31,7 @@ jobs:
     steps:
     - name: Runner info
       run: |
-        echo "RUNNER_OS: ${{ matrix.runs-on }}"
+        echo "RUNNER_OS: ${{ matrix.os }}"
         echo "RUNNER_ARCH: ${{ matrix.targetplatform }}"
 
     - name: Checkout sources
@@ -39,6 +39,8 @@ jobs:
 
     - name: Add MSBuild to PATH
       uses: microsoft/setup-msbuild@v1.3.1
+      with:
+        msbuild-architecture: ${{ matrix.targetplatform }}
 
     - name: Setup vcpkg
       run: |
