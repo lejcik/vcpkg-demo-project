@@ -57,7 +57,7 @@ jobs:
     - name: Upload Artifact
       uses: actions/upload-artifact@v3
       with:
-        name: project-binaries
+        name: project-binaries-${{ matrix.targetplatform }}
         path: |
           ${{ matrix.targetplatform }}/${{ env.BUILD_CONFIGURATION }}/*.exe
           ${{ matrix.targetplatform }}/${{ env.BUILD_CONFIGURATION }}/*.pdb
