@@ -26,7 +26,7 @@ jobs:
     runs-on: windows-latest
     strategy:
       matrix:
-        targetplatform: [x86, x64, arm64]
+        targetplatform: [x86, x64]   # arm64
 
     steps:
     - name: Runner info
