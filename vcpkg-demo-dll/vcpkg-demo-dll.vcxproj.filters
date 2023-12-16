@@ -15,7 +15,7 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="vcpkg-demo-project.cpp">
+    <ClCompile Include="vcpkg-demo-dll.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
