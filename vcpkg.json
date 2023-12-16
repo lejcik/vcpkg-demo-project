@@ -2,5 +2,6 @@
   "dependencies": [
     "liblzma",
     "zstd"
-  ]
+  ],
+  "builtin-baseline": "b86c0c35b88e2bf3557ff49dc831689c2f085090"
 }
